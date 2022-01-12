@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-@Embeddable
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

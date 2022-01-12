@@ -26,10 +26,6 @@ public class ExpenseService {
         return expenseRepository.findAll();
     }
 
-    public List<Expense> findByCategoryName(String name) {
-        return expenseRepository.findAllByCategory_Name(name);
-    }
-
     public List<Expense> getResults(String from, String until, String category) {
         LocalDate dateFrom = createFrom(from);
         LocalDate dateUntil = createUntil(until);
@@ -46,7 +42,7 @@ public class ExpenseService {
 
     private LocalDate createUntil(String date) {
         LocalDate localDate;
-        if (date.isEmpty() || date == null) {
+        if (date == null || date.isEmpty()) {
             localDate = LocalDate.now();
         } else {
             localDate = LocalDate.parse(date);
@@ -56,7 +52,7 @@ public class ExpenseService {
 
     private LocalDate createFrom(String date) {
         LocalDate localDate;
-        if (date.isEmpty() || date == null) {
+        if (date == null || date.isEmpty()) {
             localDate = LocalDate.parse("1970-01-01");
         } else {
             localDate = LocalDate.parse(date);
